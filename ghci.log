@@ -1,0 +1,226 @@
+GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/nao/bprog2022/.ghci
+2022-05-19 15:41:30.133988083
+>>> 23*9
+207
+2022-05-19 15:54:17.643147613
+>>> 55+6*8
+103
+2022-05-19 15:54:46.920110055
+>>> (5/8)+9
+9.625
+2022-05-19 15:55:36.110106668
+>>> 5-8-9+100
+88
+2022-05-19 15:55:45.667640045
+>>> sqrt 2
+1.4142135623730951
+2022-05-19 15:59:06.517939809
+>>> double 3
+
+<interactive>:6:1: error: Variable not in scope: double :: t0 -> t
+2022-05-19 16:02:06.765680481
+>>> GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/nao/bprog2022/.ghci
+2022-05-26 15:02:10.062019668
+>>> maxBound :: int
+
+<interactive>:1:1: error:
+    • No instance for (Bounded int1) arising from a use of ‘maxBound’
+      Possible fix:
+        add (Bounded int1) to the context of
+          an expression type signature:
+            forall int1. int1
+    • In the expression: maxBound :: int
+      In an equation for ‘it’: it = maxBound :: int
+2022-05-26 15:03:27.040560526
+>>> maxBound :: Int
+9223372036854775807
+2022-05-26 15:04:00.09384076
+>>> minBound :: Int
+-9223372036854775808
+2022-05-26 15:05:40.311162122
+>>> :e src/First.hs
+   1  module First where
+   2  
+   3  double :: Int ->Int
+   4  double x = x + x
+Ok, no modules loaded.
+2022-05-26 15:49:05.060097585
+>>> :l src/First.hs
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-05-26 15:49:05.119500655
+>>> double 7
+14
+2022-05-26 15:56:27.842288118
+>>> double 90
+180
+2022-05-26 15:56:34.934761416
+>>> double (1*0)
+0
+2022-05-26 15:57:20.550525728
+>>> :q
+Leaving GHCi.
+GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/nao/bprog2022/.ghci
+2022-06-09 14:54:54.345495602
+>>> (2+8)*7
+70
+2022-06-09 15:00:09.937112982
+>>> sqrt
+
+<interactive>:2:1: error:
+    • No instance for (Show (Double -> Double))
+        arising from a use of ‘print’
+        (maybe you haven't applied a function to enough arguments?)
+    • In a stmt of an interactive GHCi command: print it
+2022-06-09 15:00:26.829860127
+>>> :i sqrt
+type Floating :: * -> Constraint
+class Fractional a => Floating a where
+  ...
+  sqrt :: a -> a
+  ...
+  	-- Defined in ‘GHC.Float’
+2022-06-09 15:00:42.773581261
+>>> sprt (3^2+4^2)
+
+<interactive>:4:1: error:
+    • Variable not in scope: sprt :: t0 -> t
+    • Perhaps you meant ‘sqrt’ (imported from Prelude)
+2022-06-09 15:05:11.279424304
+>>> sqrt(3^2+4^2)
+5.0
+2022-06-09 15:06:46.240060097
+>>> sqrt(25::Int)
+
+<interactive>:6:1: error:
+    • No instance for (Floating Int) arising from a use of ‘sqrt’
+    • In the expression: sqrt (25 :: Int)
+      In an equation for ‘it’: it = sqrt (25 :: Int)
+2022-06-09 15:08:12.239764553
+>>> sqrt(25::Double)
+5.0
+2022-06-09 15:09:34.991291495
+>>> hoge 25::Int
+
+<interactive>:8:1: error: Variable not in scope: hoge :: t0 -> Int
+2022-06-09 15:13:49.008645373
+>>> head[1,2,3]
+1
+2022-06-09 15:46:28.687325237
+>>> head[1,6,4,5,0]
+1
+2022-06-09 15:46:44.134151476
+>>> head[]
+*** Exception: Prelude.head: empty list
+2022-06-09 15:48:41.959414426
+>>> hoge=[1,6,4,5,0]::[Int]
+2022-06-09 15:50:43.296661277
+>>> hoge
+[1,6,4,5,0]
+2022-06-09 15:50:52.078499433
+>>> head hoge
+1
+2022-06-09 15:51:25.833237264
+>>> tail hoge
+[6,4,5,0]
+2022-06-09 15:51:43.10255043
+>>> tail []
+*** Exception: Prelude.tail: empty list
+2022-06-09 15:52:31.828556172
+>>> hoge !! 
+
+<interactive>:17:9: error:
+    parse error (possibly incorrect indentation or mismatched brackets)
+2022-06-09 15:55:12.479831859
+>>> hoge !! 2
+4
+2022-06-09 15:55:28.704050029
+>>> hoge !! 0 
+1
+2022-06-09 15:55:46.757537022
+>>> hoge !! 8
+*** Exception: Prelude.!!: index too large
+2022-06-09 15:56:15.374128747
+>>> take 3 hoge
+[1,6,4]
+2022-06-09 15:56:28.097711137
+>>> drop 3 hoge
+[5,0]
+2022-06-09 15:57:29.100559249
+>>> take 10 hoge
+[1,6,4,5,0]
+2022-06-09 15:59:26.452314271
+>>> drop 10 hoge
+[]
+2022-06-09 15:59:47.937453912
+>>> length hoge
+5
+2022-06-09 16:01:02.153035693
+>>> length []
+0
+2022-06-09 16:01:21.068667921
+>>> sum hoge
+16
+2022-06-09 16:01:59.383638937
+>>> product hoge
+0
+2022-06-09 16:03:00.710599997
+>>> hoge++hoge
+[1,6,4,5,0,1,6,4,5,0]
+2022-06-09 16:04:41.844015917
+>>> reverse hoge
+[0,5,4,6,1]
+2022-06-09 16:05:45.336936736
+>>> :lord src/First.hs
+unknown command ':lord'
+use :? for help.
+2022-06-09 16:07:41.440330648
+>>> :e src/First.hs
+   1  module First where
+   2  
+   3  double :: Int ->Int
+   4  double x = x + x
+Ok, no modules loaded.
+2022-06-09 16:08:49.493036593
+>>> :load src/First.hs
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-06-09 16:08:49.556851695
+>>> double3+3
+
+<interactive>:34:1: error:
+    • Variable not in scope: double3
+    • Perhaps you meant ‘double’ (line 4)
+2022-06-09 16:10:28.085007723
+>>> double 3+3
+9
+2022-06-09 16:10:42.220967968
+>>> quadrouple (2+3)
+
+<interactive>:36:1: error:
+    Variable not in scope: quadrouple :: t0 -> t
+2022-06-09 16:14:59.592905945
+>>> quadrouple (2+3)
+
+<interactive>:37:1: error:
+    Variable not in scope: quadrouple :: t0 -> t
+2022-06-09 16:16:01.026481709
+>>> :e
+   1  module First where
+   2  
+   3  double :: Int ->Int
+   4  double x = x + x
+   5  
+   6  quadrouple :: Int -> Int
+   7  quadrouple x = double (double x)
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-06-09 16:19:14.760021254
+>>> quadrouple (2+3)
+20
+2022-06-09 16:19:33.723917669
+>>> :quit
+Leaving GHCi.
