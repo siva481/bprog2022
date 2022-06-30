@@ -524,3 +524,236 @@ Ok, one module loaded.
 2022-06-16 16:15:14.743722683
 >>>  :q
 Leaving GHCi.
+GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/nao/bprog2022/.ghci
+2022-06-23 14:56:10.213586559
+>>> :i Num
+type Num :: * -> Constraint
+class Num a where
+  (+) :: a -> a -> a
+  (-) :: a -> a -> a
+  (*) :: a -> a -> a
+  negate :: a -> a
+  abs :: a -> a
+  signum :: a -> a
+  fromInteger :: Integer -> a
+  {-# MINIMAL (+), (*), abs, signum, fromInteger, (negate | (-)) #-}
+  	-- Defined in ‘GHC.Num’
+instance Num NominalDiffTime
+  -- Defined in ‘time-1.9.3:Data.Time.Clock.Internal.NominalDiffTime’
+instance Num DiffTime
+  -- Defined in ‘time-1.9.3:Data.Time.Clock.Internal.DiffTime’
+instance Num Word -- Defined in ‘GHC.Num’
+instance Num Integer -- Defined in ‘GHC.Num’
+instance Num Int -- Defined in ‘GHC.Num’
+instance Num Float -- Defined in ‘GHC.Float’
+instance Num Double -- Defined in ‘GHC.Float’
+2022-06-23 14:56:27.872828387
+>>> 1==2
+False
+2022-06-23 15:06:22.233851803
+>>> 1<4
+True
+2022-06-23 15:06:30.516818098
+>>> 1>1
+False
+2022-06-23 15:06:41.761575215
+>>> 7>-1
+
+<interactive>:5:2: error:
+    • Variable not in scope: (>-) :: t0 -> t1 -> t
+    • Perhaps you meant one of these:
+        ‘-’ (imported from Prelude), ‘>=’ (imported from Prelude),
+        ‘>>’ (imported from Prelude)
+2022-06-23 15:06:54.631207684
+>>> 'a' < 'b'
+True
+2022-06-23 15:11:23.4624568
+>>> 'a' <'B'
+False
+2022-06-23 15:11:38.383590735
+>>> '' 'a'
+
+<interactive>:8:1: error:
+    Parser error on `''`
+    Character literals may not be empty
+2022-06-23 15:12:09.18755535
+>>> 1 /= 2
+True
+2022-06-23 15:15:58.635286898
+>>> 1 /=1
+False
+2022-06-23 15:16:07.491651159
+>>> :info abs
+type Num :: * -> Constraint
+class Num a where
+  ...
+  abs :: a -> a
+  ...
+  	-- Defined in ‘GHC.Num’
+2022-06-23 15:30:15.412495073
+>>> abs (-234)
+234
+2022-06-23 15:39:10.47790382
+>>> abs
+
+<interactive>:13:1: error:
+    • No instance for (Show (Integer -> Integer))
+        arising from a use of ‘print’
+        (maybe you haven't applied a function to enough arguments?)
+    • In a stmt of an interactive GHCi command: print it
+2022-06-23 15:39:25.674876874
+>>> GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/nao/bprog2022/.ghci
+2022-06-30 14:56:38.27261393
+>>> [ x ^ 2 | x <- [1 .. 5] ]
+[1,4,9,16,25]
+2022-06-30 15:01:57.99067598
+>>> map (^2) [1..5]
+[1,4,9,16,25]
+2022-06-30 15:05:05.179195609
+>>> [ x * 2 | x <- [1 .. 5] ]
+[2,4,6,8,10]
+2022-06-30 15:12:01.043375036
+>>> [ x  `div` 2 | x <- [1 ..5 ]]
+[0,1,1,2,2]
+2022-06-30 15:13:50.042095749
+>>> [ x  `divMod` 2 | x <- [1 ..5 ]]
+[(0,1),(1,0),(1,1),(2,0),(2,1)]
+2022-06-30 15:15:26.97977765
+>>> > [(x,y) | x <- [1,2,3], y <- [4,5]]
+
+<interactive>:6:1: error: parse error on input ‘>’
+2022-06-30 15:20:37.850517777
+>>> [ (x, y ) | x <- "abc" , y <- [4,5] ]
+[('a',4),('a',5),('b',4),('b',5),('c',4),('c',5)]
+2022-06-30 15:22:02.768791871
+>>> [ (x, y ) | x <- "4,5" , y <- [abc] ]
+
+<interactive>:8:32: error:
+    • Variable not in scope: abc
+    • Perhaps you meant ‘abs’ (imported from Prelude)
+2022-06-30 15:22:37.891559953
+>>> myconcat [[1,2,3],[4,5],[6,7,8,9]]
+
+<interactive>:9:1: error:
+    • Variable not in scope: myconcat :: [[a0]] -> t
+    • Perhaps you meant one of these:
+        ‘mconcat’ (imported from Prelude), ‘concat’ (imported from Prelude)
+2022-06-30 15:28:48.389606825
+>>> :e
+No files to edit.
+2022-06-30 15:29:30.20633689
+>>> :l
+Ok, no modules loaded.
+2022-06-30 15:29:30.315826034
+>>> :e src/First where
+catn: src/First: openFile: does not exist (No such file or directory)
+2022-06-30 15:30:05.592629899
+>>> :l src/First where
+target ‘where’ is not a module name or a source file
+2022-06-30 15:30:05.658001505
+>>> myconcat [[1,2,3],[4,5],[6,7,8,9]]
+
+<interactive>:14:1: error:
+    • Variable not in scope: myconcat :: [[a0]] -> t
+    • Perhaps you meant one of these:
+        ‘mconcat’ (imported from Prelude), ‘concat’ (imported from Prelude)
+2022-06-30 15:31:19.073628743
+>>> myconcat [[1,2,3],[4,5],[6,7,8,9]]
+
+<interactive>:15:1: error:
+    • Variable not in scope: myconcat :: [[a0]] -> t
+    • Perhaps you meant one of these:
+        ‘mconcat’ (imported from Prelude), ‘concat’ (imported from Prelude)
+2022-06-30 15:35:43.639538833
+>>> :e
+No files to edit.
+2022-06-30 15:38:08.865431398
+>>> :e src/First.hs
+   1  module First where
+   2  
+   3  double :: Int ->Int
+   4  double x = x + x
+   5  
+   6  quadrouple :: Int -> Int
+   7  quadrouple x = double (double x)
+   8  
+   9  factorial :: Integer -> Integer
+  10  factorial n = product [1 .. n]
+  11  
+  12  average :: [Int] -> Int
+  13  average xs = sum  xs `div` length xs
+  14  
+  15  ave :: [Int] -> Int
+  16  ave xs = div (sum xs)(length xs)
+  17  
+  18  myinit :: [a] -> [a]
+  19  myinit (x:[]) = []
+  20  myinit (x:xs) = x : (init xs)
+  21  
+  22  myconcat :: [[a]] -> [a]
+  23  myconcat xss = [x | xs <- xss, x <- xs]
+Ok, no modules loaded.
+2022-06-30 15:38:30.406351886
+>>> :l src/First.hs
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-06-30 15:38:30.507969638
+>>> myconcat [[1,2,3],[4,5],[6,7,8,9]]
+[1,2,3,4,5,6,7,8,9]
+2022-06-30 15:38:38.242523806
+>>> [ 1 | _ <- [1 ..5]]
+[1,1,1,1,1]
+2022-06-30 15:47:40.694265689
+>>> :e src/First.hs
+   1  module First where
+   2  
+   3  double :: Int ->Int
+   4  double x = x + x
+   5  
+   6  quadrouple :: Int -> Int
+   7  quadrouple x = double (double x)
+   8  
+   9  factorial :: Integer -> Integer
+  10  factorial n = product [1 .. n]
+  11  
+  12  average :: [Int] -> Int
+  13  average xs = sum  xs `div` length xs
+  14  
+  15  ave :: [Int] -> Int
+  16  ave xs = div (sum xs)(length xs)
+  17  
+  18  myinit :: [a] -> [a]
+  19  myinit (x:[]) = []
+  20  myinit (x:xs) = x : (init xs)
+  21  
+  22  myconcat :: [[a]] -> [a]
+  23  myconcat xss = [x | xs <- xss, x <- xs]
+  24  
+  25  mylength :: [a] -> Int
+  26  mylength xs = sum [1 | _<- xs]
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-06-30 15:52:51.172912405
+>>> :l src/First.hs
+[1 of 1] Compiling First            ( src/First.hs, interpreted )
+Ok, one module loaded.
+2022-06-30 15:52:51.269706119
+>>> putStrLn it
+
+<interactive>:23:10: error:
+    • Variable not in scope: it :: String
+    • Perhaps you meant ‘id’ (imported from Prelude)
+2022-06-30 15:56:52.227003524
+>>> ['a'..'z']
+"abcdefghijklmnopqrstuvwxyz"
+2022-06-30 15:57:41.302556753
+>>> ['あ'..'ん']
+"\12354\12355\12356\12357\12358\12359\12360\12361\12362\12363\12364\12365\12366\12367\12368\12369\12370\12371\12372\12373\12374\12375\12376\12377\12378\12379\12380\12381\12382\12383\12384\12385\12386\12387\12388\12389\12390\12391\12392\12393\12394\12395\12396\12397\12398\12399\12400\12401\12402\12403\12404\12405\12406\12407\12408\12409\12410\12411\12412\12413\12414\12415\12416\12417\12418\12419\12420\12421\12422\12423\12424\12425\12426\12427\12428\12429\12430\12431\12432\12433\12434\12435"
+2022-06-30 15:59:01.131649795
+>>> putStrLn it
+あぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをん
+2022-06-30 15:59:23.301680405
+>>> :q
+Leaving GHCi.
