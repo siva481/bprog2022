@@ -1282,3 +1282,506 @@ Ok, one module loaded.
 2022-07-14 16:16:01.753473072
 >>> :q
 Leaving GHCi.
+GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/nao/bprog2022/.ghci
+2022-07-21 15:06:15.602465772
+>>> :e src/Caesar.hs
+   1  module Caesar where
+   2  
+   3  import Data.Char
+   4  
+   5  let2int :: Char -> Int
+   6  let2int c = ord c - ord 'a'
+   7  
+   8  int2let :: Int -> Char
+   9  int2let i = chr (i + ord 'a') 
+  10  
+  11  shift :: Int -> (Char -> Char)
+  12  shift n c 
+  13      | isLower c = int2let ((let2int c + n) `mod` 26)
+  14      | otherwise = c
+  15  
+  16  encode :: Int -> (String -> String)
+  17  encode n xs = [ shift n x | x <- xs]
+  18  
+  19  table :: [Float]
+  20  table =[ 8.1, 1.5, 2.8, 4.2, 12.7, 2.2, 2.0,6.1, 7.0 
+  21         , 2.0, 0.8, 4.0, 2.4, 6.7, 7.5, 1.9, 0.1, 6.0
+  22         , 6.3, 9.0, 2.8, 1.0, 2.4, 0.2, 2.0,  0.1
+  23         ]
+  24  
+  25  percent :: Int -> Int -> Float
+  26  percent n m = (fromIntegral n / fromIntegral m) * 100
+  27  
+  28  count :: Char -> (String -> Int)
+  29  count x xs = length [x' | x' <- xs, x == x']
+  30  
+  31  freqs :: String -> [Float]
+  32  freqs xs = [ percent (count x xs) n | x <- ['a' .. 'z']]
+  33      where
+  34          n = length xs
+Ok, no modules loaded.
+2022-07-21 15:07:16.957476267
+>>> :l src/Caesar.hs
+[1 of 1] Compiling Caesar           ( src/Caesar.hs, interpreted )
+Ok, one module loaded.
+2022-07-21 15:07:17.099966851
+>>> sample
+
+<interactive>:3:1: error: Variable not in scope: sample
+2022-07-21 15:20:08.099363945
+>>> freqs sample
+
+<interactive>:4:7: error: Variable not in scope: sample :: String
+2022-07-21 15:20:30.433407808
+>>> :e
+   1  module Caesar where
+   2  
+   3  import Data.Char
+   4  
+   5  let2int :: Char -> Int
+   6  let2int c = ord c - ord 'a'
+   7  
+   8  int2let :: Int -> Char
+   9  int2let i = chr (i + ord 'a') 
+  10  
+  11  shift :: Int -> (Char -> Char)
+  12  shift n c 
+  13      | isLower c = int2let ((let2int c + n) `mod` 26)
+  14      | otherwise = c
+  15  
+  16  encode :: Int -> (String -> String)
+  17  encode n xs = [ shift n x | x <- xs]
+  18  
+  19  table :: [Float]
+  20  table =[ 8.1, 1.5, 2.8, 4.2, 12.7, 2.2, 2.0,6.1, 7.0 
+  21         , 2.0, 0.8, 4.0, 2.4, 6.7, 7.5, 1.9, 0.1, 6.0
+  22         , 6.3, 9.0, 2.8, 1.0, 2.4, 0.2, 2.0,  0.1
+  23         ]
+  24  
+  25  percent :: Int -> Int -> Float
+  26  percent n m = (fromIntegral n / fromIntegral m) * 100
+  27  
+  28  count :: Char -> (String -> Int)
+  29  count x xs = length [x' | x' <- xs, x == x']
+  30  
+  31  freqs :: String -> [Float]
+  32  freqs xs = [ percent (count x xs) n | x <- ['a' .. 'z']]
+  33      where
+  34          n = length xs
+  35  
+  36  sample :: String
+  37  sample ="abbcccddddeeeee"
+  38  
+[1 of 1] Compiling Caesar           ( src/Caesar.hs, interpreted )
+Ok, one module loaded.
+2022-07-21 15:21:02.500704614
+>>> :l
+Ok, no modules loaded.
+2022-07-21 15:21:02.585121469
+>>> sample
+
+<interactive>:7:1: error: Variable not in scope: sample
+2022-07-21 15:21:07.67598564
+>>> :e
+No files to edit.
+2022-07-21 15:21:15.478028269
+>>> sample
+
+<interactive>:9:1: error: Variable not in scope: sample
+2022-07-21 15:21:27.243711486
+>>> sample
+
+<interactive>:10:1: error: Variable not in scope: sample
+2022-07-21 15:22:18.41123036
+>>> freqs sample
+
+<interactive>:11:1: error: Variable not in scope: freqs :: t0 -> t
+
+<interactive>:11:7: error: Variable not in scope: sample
+2022-07-21 15:23:31.97339514
+>>> :e
+No files to edit.
+2022-07-21 15:24:31.319363375
+>>> :l
+Ok, no modules loaded.
+2022-07-21 15:24:31.420518871
+>>> :e src/Caesar.hs
+   1  module Caesar where
+   2  
+   3  import Data.Char
+   4  
+   5  let2int :: Char -> Int
+   6  let2int c = ord c - ord 'a'
+   7  
+   8  int2let :: Int -> Char
+   9  int2let i = chr (i + ord 'a') 
+  10  
+  11  shift :: Int -> (Char -> Char)
+  12  shift n c 
+  13      | isLower c = int2let ((let2int c + n) `mod` 26)
+  14      | otherwise = c
+  15  
+  16  encode :: Int -> (String -> String)
+  17  encode n xs = [ shift n x | x <- xs]
+  18  
+  19  table :: [Float]
+  20  table =[ 8.1, 1.5, 2.8, 4.2, 12.7, 2.2, 2.0,6.1, 7.0 
+  21         , 2.0, 0.8, 4.0, 2.4, 6.7, 7.5, 1.9, 0.1, 6.0
+  22         , 6.3, 9.0, 2.8, 1.0, 2.4, 0.2, 2.0,  0.1
+  23         ]
+  24  
+  25  percent :: Int -> Int -> Float
+  26  percent n m = (fromIntegral n / fromIntegral m) * 100
+  27  
+  28  count :: Char -> (String -> Int)
+  29  count x xs = length [x' | x' <- xs, x == x']
+  30  
+  31  freqs :: String -> [Float]
+  32  freqs xs = [ percent (count x xs) n | x <- ['a' .. 'z']]
+  33      where
+  34          n = length xs
+  35  
+  36  sample :: String
+  37  sample ="abbcccddddeeeee"
+Ok, no modules loaded.
+2022-07-21 15:24:47.934733563
+>>> :l src/Caesar.hs
+[1 of 1] Compiling Caesar           ( src/Caesar.hs, interpreted )
+Ok, one module loaded.
+2022-07-21 15:24:48.046253495
+>>> sample
+"abbcccddddeeeee"
+2022-07-21 15:24:53.524548556
+>>> :e
+   1  module Caesar where
+   2  
+   3  import Data.Char
+   4  
+   5  let2int :: Char -> Int
+   6  let2int c = ord c - ord 'a'
+   7  
+   8  int2let :: Int -> Char
+   9  int2let i = chr (i + ord 'a') 
+  10  
+  11  shift :: Int -> (Char -> Char)
+  12  shift n c 
+  13      | isLower c = int2let ((let2int c + n) `mod` 26)
+  14      | otherwise = c
+  15  
+  16  encode :: Int -> (String -> String)
+  17  encode n xs = [ shift n x | x <- xs]
+  18  
+  19  table :: [Float]
+  20  table =[ 8.1, 1.5, 2.8, 4.2, 12.7, 2.2, 2.0,6.1, 7.0 
+  21         , 2.0, 0.8, 4.0, 2.4, 6.7, 7.5, 1.9, 0.1, 6.0
+  22         , 6.3, 9.0, 2.8, 1.0, 2.4, 0.2, 2.0,  0.1
+  23         ]
+  24  
+  25  percent :: Int -> Int -> Float
+  26  percent n m = (fromIntegral n / fromIntegral m) * 100
+  27  
+  28  count :: Char -> (String -> Int)
+  29  count x xs = length [x' | x' <- xs, x == x']
+  30  
+  31  freqs :: String -> [Float]
+  32  freqs xs = [ percent (count x xs) n | x <- ['a' .. 'z']]
+  33      where
+  34          n = length xs
+  35  
+  36  sample :: String
+  37  sample ="abbcccddddeeeee"
+  38  
+  39  chisqr :: [Float] -> [Float] -> Float
+  40  chisqr os es = sum [ (o - e)^2 / e |  (o, e) <- zip os es ]
+  41  
+  42  rotate :: Int -> [a] -> [a]
+  43  rotate n xs = drop n xs ++ take n xs
+[1 of 1] Compiling Caesar           ( src/Caesar.hs, interpreted )
+Ok, one module loaded.
+2022-07-21 15:38:54.535046235
+>>> rotate 3 [1..5]
+[4,5,1,2,3]
+2022-07-21 15:39:30.712202614
+>>> :e
+   1  module Caesar where
+   2  
+   3  import Data.Char
+   4  
+   5  let2int :: Char -> Int
+   6  let2int c = ord c - ord 'a'
+   7  
+   8  int2let :: Int -> Char
+   9  int2let i = chr (i + ord 'a') 
+  10  
+  11  shift :: Int -> (Char -> Char)
+  12  shift n c 
+  13      | isLower c = int2let ((let2int c + n) `mod` 26)
+  14      | otherwise = c
+  15  
+  16  encode :: Int -> (String -> String)
+  17  encode n xs = [ shift n x | x <- xs]
+  18  
+  19  table :: [Float]
+  20  table =[ 8.1, 1.5, 2.8, 4.2, 12.7, 2.2, 2.0,6.1, 7.0 
+  21         , 2.0, 0.8, 4.0, 2.4, 6.7, 7.5, 1.9, 0.1, 6.0
+  22         , 6.3, 9.0, 2.8, 1.0, 2.4, 0.2, 2.0,  0.1
+  23         ]
+  24  
+  25  percent :: Int -> Int -> Float
+  26  percent n m = (fromIntegral n / fromIntegral m) * 100
+  27  
+  28  count :: Char -> (String -> Int)
+  29  count x xs = length [x' | x' <- xs, x == x']
+  30  
+  31  freqs :: String -> [Float]
+  32  freqs xs = [ percent (count x xs) n | x <- ['a' .. 'z']]
+  33      where
+  34          n = length xs
+  35  
+  36  sample :: String
+  37  sample ="abbcccddddeeeee"
+  38  
+  39  chisqr :: [Float] -> [Float] -> Float
+  40  chisqr os es = sum [ (o - e)^2 / e |  (o, e) <- zip os es ]
+  41  
+  42  rotate :: Int -> [a] -> [a]
+  43  rotate n xs = drop n xs ++ take n xs
+  44  
+  45  table' :: [Float]
+  46  table' = freqs "kdvnhoo tv ixq"
+[1 of 1] Compiling Caesar           ( src/Caesar.hs, interpreted )
+Ok, one module loaded.
+2022-07-21 15:46:29.463255608
+>>> table'
+[0.0,0.0,0.0,7.1428576,0.0,0.0,0.0,7.1428576,7.1428576,0.0,7.1428576,0.0,0.0,7.1428576,14.285715,0.0,7.1428576,0.0,0.0,7.1428576,0.0,14.285715,0.0,7.1428576,0.0,0.0]
+2022-07-21 15:46:43.041354791
+>>> [chisqr (rotate n table' )table | n <- [0..25]]
+[1031.83,188.79199,207.16638,655.47327,850.657,2187.2444,466.5499,647.24,718.70483,779.079,360.82443,1098.6874,270.74115,1037.8608,638.1516,2215.649,449.5277,2087.6787,755.6422,596.9137,1238.7236,144.10806,2368.6028,719.51215,3721.5073,231.42606]
+2022-07-21 15:48:13.04745628
+>>> :e
+   1  module Caesar where
+   2  
+   3  import Data.Char
+   4  
+   5  let2int :: Char -> Int
+   6  let2int c = ord c - ord 'a'
+   7  
+   8  int2let :: Int -> Char
+   9  int2let i = chr (i + ord 'a') 
+  10  
+  11  shift :: Int -> (Char -> Char)
+  12  shift n c 
+  13      | isLower c = int2let ((let2int c + n) `mod` 26)
+  14      | otherwise = c
+  15  
+  16  encode :: Int -> (String -> String)
+  17  encode n xs = [ shift n x | x <- xs]
+  18  
+  19  table :: [Float]
+  20  table =[ 8.1, 1.5, 2.8, 4.2, 12.7, 2.2, 2.0,6.1, 7.0 
+  21         , 2.0, 0.8, 4.0, 2.4, 6.7, 7.5, 1.9, 0.1, 6.0
+  22         , 6.3, 9.0, 2.8, 1.0, 2.4, 0.2, 2.0,  0.1
+  23         ]
+  24  
+  25  percent :: Int -> Int -> Float
+  26  percent n m = (fromIntegral n / fromIntegral m) * 100
+  27  
+  28  count :: Char -> (String -> Int)
+  29  count x xs = length [x' | x' <- xs, x == x']
+  30  
+  31  freqs :: String -> [Float]
+  32  freqs xs = [ percent (count x xs) n | x <- ['a' .. 'z']]
+  33      where
+  34          n = length xs
+  35  
+  36  sample :: String
+  37  sample ="abbcccddddeeeee"
+  38  
+  39  chisqr :: [Float] -> [Float] -> Float
+  40  chisqr os es = sum [ (o - e)^2 / e |  (o, e) <- zip os es ]
+  41  
+  42  rotate :: Int -> [a] -> [a]
+  43  rotate n xs = drop n xs ++ take n xs
+  44  
+  45  table' :: [Float]
+  46  table' = freqs "kdvnhoo lv ixq"
+  47  
+  48  sampleAngou :: String
+  49  sampleAngou = "kdvnhoo lv ixq"
+  50  
+  51  crack :: String -> String
+  52  crack xs = encode (-factor) xs
+  53      where
+  54          factor = head (position (minimum chitab )chitab)
+  55          chitab = [chisqr(rotate n table')table | n <- [0..25]]
+[1 of 1] Compiling Caesar           ( src/Caesar.hs, interpreted )
+
+src/Caesar.hs:54:24: error:
+    Variable not in scope: position :: Float -> [Float] -> [a]
+   |
+54 |         factor = head (position (minimum chitab )chitab)
+   |                        ^^^^^^^^
+Failed, no modules loaded.
+2022-07-21 15:54:53.970239142
+>>> 
+2022-07-21 15:59:27.7820384
+>>> :e
+   1  module Caesar where
+   2  
+   3  import Data.Char
+   4  
+   5  let2int :: Char -> Int
+   6  let2int c = ord c - ord 'a'
+   7  
+   8  int2let :: Int -> Char
+   9  int2let i = chr (i + ord 'a') 
+  10  
+  11  shift :: Int -> (Char -> Char)
+  12  shift n c 
+  13      | isLower c = int2let ((let2int c + n) `mod` 26)
+  14      | otherwise = c
+  15  
+  16  encode :: Int -> (String -> String)
+  17  encode n xs = [ shift n x | x <- xs]
+  18  
+  19  table :: [Float]
+  20  table =[ 8.1, 1.5, 2.8, 4.2, 12.7, 2.2, 2.0,6.1, 7.0 
+  21         , 2.0, 0.8, 4.0, 2.4, 6.7, 7.5, 1.9, 0.1, 6.0
+  22         , 6.3, 9.0, 2.8, 1.0, 2.4, 0.2, 2.0,  0.1
+  23         ]
+  24  
+  25  percent :: Int -> Int -> Float
+  26  percent n m = (fromIntegral n / fromIntegral m) * 100
+  27  
+  28  count :: Char -> (String -> Int)
+  29  count x xs = length [x' | x' <- xs, x == x']
+  30  
+  31  freqs :: String -> [Float]
+  32  freqs xs = [ percent (count x xs) n | x <- ['a' .. 'z']]
+  33      where
+  34          n = length xs
+  35  
+  36  sample :: String
+  37  sample ="abbcccddddeeeee"
+  38  
+  39  chisqr :: [Float] -> [Float] -> Float
+  40  chisqr os es = sum [ (o - e)^2 / e |  (o, e) <- zip os es ]
+  41  
+  42  rotate :: Int -> [a] -> [a]
+  43  rotate n xs = drop n xs ++ take n xs
+  44  
+  45  table' :: [Float]
+  46  table' = freqs "kdvnhoo lv ixq"
+  47  
+  48  sampleAngou :: String
+  49  sampleAngou = "kdvnhoo lv ixq"
+  50  
+  51  crack :: String -> String
+  52  crack xs = encode (-factor) xs
+  53      where
+  54          factor = head (positions (minimum chitab )chitab)
+  55          chitab = [chisqr(rotate n table')table | n <- [0..25]]
+  56  
+  57  
+  58  positions :: Eq a => a -> [a] -> [Int]
+  59  positions x xs =[ i | (x' , i) <- zip xs [0..], x == x']
+[1 of 1] Compiling Caesar           ( src/Caesar.hs, interpreted )
+Ok, one module loaded.
+2022-07-21 15:59:51.283950994
+>>> positions Fals[True, False, True, False]
+
+<interactive>:25:11: error:
+    • Data constructor not in scope: Fals :: Bool
+    • Perhaps you meant ‘False’ (imported from Prelude)
+2022-07-21 16:00:58.278540745
+>>> positions Fals [True, False, True, False] 
+
+<interactive>:26:11: error:
+    • Data constructor not in scope: Fals :: Bool
+    • Perhaps you meant ‘False’ (imported from Prelude)
+2022-07-21 16:01:35.655655996
+>>> positions False [True, False, True, False] 
+[1,3]
+2022-07-21 16:02:34.411757548
+>>> :e
+   1  module Caesar where
+   2  
+   3  import Data.Char
+   4  
+   5  let2int :: Char -> Int
+   6  let2int c = ord c - ord 'a'
+   7  
+   8  int2let :: Int -> Char
+   9  int2let i = chr (i + ord 'a') 
+  10  
+  11  shift :: Int -> (Char -> Char)
+  12  shift n c 
+  13      | isLower c = int2let ((let2int c + n) `mod` 26)
+  14      | otherwise = c
+  15  
+  16  encode :: Int -> (String -> String)
+  17  encode n xs = [ shift n x | x <- xs]
+  18  
+  19  table :: [Float]
+  20  table =[ 8.1, 1.5, 2.8, 4.2, 12.7, 2.2, 2.0,6.1, 7.0 
+  21         , 2.0, 0.8, 4.0, 2.4, 6.7, 7.5, 1.9, 0.1, 6.0
+  22         , 6.3, 9.0, 2.8, 1.0, 2.4, 0.2, 2.0,  0.1
+  23         ]
+  24  
+  25  percent :: Int -> Int -> Float
+  26  percent n m = (fromIntegral n / fromIntegral m) * 100
+  27  
+  28  count :: Char -> (String -> Int)
+  29  count x xs = length [x' | x' <- xs, x == x']
+  30  
+  31  freqs :: String -> [Float]
+  32  freqs xs = [ percent (count x xs) n | x <- ['a' .. 'z']]
+  33      where
+  34          n = length xs
+  35  
+  36  sample :: String
+  37  sample ="abbcccddddeeeee"
+  38  
+  39  chisqr :: [Float] -> [Float] -> Float
+  40  chisqr os es = sum [ (o - e)^2 / e |  (o, e) <- zip os es ]
+  41  
+  42  rotate :: Int -> [a] -> [a]
+  43  rotate n xs = drop n xs ++ take n xs
+  44  
+  45  table' :: [Float]
+  46  table' = freqs "kdvnhoo lv ixq"
+  47  
+  48  sampleAngou :: String
+  49  sampleAngou = "kdvnhoo lv ixq"
+  50  
+  51  crack :: String -> String
+  52  crack xs = encode (-factor) xs
+  53      where
+  54          factor = head (positions (minimum chitab )chitab)
+  55          chitab = [chisqr(rotate n table')table | n <- [0..25]]
+  56          table' = freqs xs
+  57  
+  58  positions :: Eq a => a -> [a] -> [Int]
+  59  positions x xs =[ i | (x' , i) <- zip xs [0..], x == x']
+[1 of 1] Compiling Caesar           ( src/Caesar.hs, interpreted )
+Ok, one module loaded.
+2022-07-21 16:03:37.80941447
+>>> crack "vscd mywzboroxcsyxc kbo ecopev
+
+<interactive>:29:38: error:
+    lexical error in string/character literal at end of input
+2022-07-21 16:05:02.565264819
+>>> crack sampleAngou
+"haskell is fun"
+2022-07-21 16:05:50.364345847
+>>> crack "vscd mywzboroxcsyxc kbo ecopev
+
+<interactive>:31:38: error:
+    lexical error in string/character literal at end of input
+2022-07-21 16:07:27.538378652
+>>> crack "vscd mywzboroxcsyxc kbo ecopev"
+"list comprehensions are useful"
+2022-07-21 16:07:54.77777984
+>>> :q
+Leaving GHCi.
