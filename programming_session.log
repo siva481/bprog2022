@@ -194,3 +194,105 @@ Ok, one module loaded.
 [?1h=>>> git a[K[K[K[K[K:q
 [?1l>Leaving GHCi.
 ]0;nao@nao: ~/bprog2022[01;32mnao@nao[00m:[01;34m~/bprog2022[00m$ git add .
+]0;nao@nao: ~/bprog2022[01;32mnao@nao[00m:[01;34m~/bprog2022[00m$ git commit -m ""1"0"0"6"
+[main 6914b5c] 1006
+ 3 files changed, 222 insertions(+)
+ create mode 100644 programming_session.log
+ create mode 100644 src/Rec.hs
+ create mode 100755 start_programming
+]0;nao@nao: ~/bprog2022[01;32mnao@nao[00m:[01;34m~/bprog2022[00m$ git push
+Enumerating objects: 8, done.
+Counting objects:  12% (1/8)Counting objects:  25% (2/8)Counting objects:  37% (3/8)Counting objects:  50% (4/8)Counting objects:  62% (5/8)Counting objects:  75% (6/8)Counting objects:  87% (7/8)Counting objects: 100% (8/8)Counting objects: 100% (8/8), done.
+Delta compression using up to 12 threads
+Compressing objects:  16% (1/6)Compressing objects:  33% (2/6)Compressing objects:  50% (3/6)Compressing objects:  66% (4/6)Compressing objects:  83% (5/6)Compressing objects: 100% (6/6)Compressing objects: 100% (6/6), done.
+Writing objects:  16% (1/6)Writing objects:  33% (2/6)Writing objects:  50% (3/6)Writing objects:  66% (4/6)Writing objects:  83% (5/6)Writing objects: 100% (6/6)Writing objects: 100% (6/6), 3.32 KiB | 1.11 MiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas:   0% (0/2)[Kremote: Resolving deltas:  50% (1/2)[Kremote: Resolving deltas: 100% (2/2)[Kremote: Resolving deltas: 100% (2/2), completed with 2 local objects.[K
+To github.com:siva481/bprog2022.git
+   3331842..6914b5c  main -> main
+]0;nao@nao: ~/bprog2022[01;32mnao@nao[00m:[01;34m~/bprog2022[00m$ Script started on 2022-10-13 15:09:54+09:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="85" LINES="45"]
+]0;nao@nao: ~/bprog2022[01;32mnao@nao[00m:[01;34m~/bprog2022[00m$ lghci src [K/Rec.hs
+GHCi, version 9.0.2: https://www.haskell.org/ghc/  :? for help
+Loaded GHCi configuration from /home/nao/bprog2022/.ghci
+[1 of 1] Compiling Rec              ( src/Rec.hs, interpreted )
+
+[;1msrc/Rec.hs:27:14: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m parse error on input ‘=’[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m27 |[0m[0m  merge [] ys [;1m[31m=[0m[0m ys
+[;1m[34m   |[0m[0m[;1m[31m              ^[0m[0m
+Failed, no modules loaded.
+2022-10-13 15:10:17.324934172
+[?1h=>>> :r
+[?1l>[1 of 1] Compiling Rec              ( src/Rec.hs, interpreted )
+
+[;1msrc/Rec.hs:34:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    Multiple declarations of ‘merge’
+    Declared at: src/Rec.hs:27:1
+                 src/Rec.hs:34:1[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m34 |[0m[0m [;1m[31mmerge[0m[0m [] = []
+[;1m[34m   |[0m[0m[;1m[31m ^^^^^[0m[0m
+Failed, no modules loaded.
+2022-10-13 15:12:53.608924647
+[?1h=>>> :r
+[?1l>[1 of 1] Compiling Rec              ( src/Rec.hs, interpreted )
+Ok, one module loaded.
+2022-10-13 15:13:13.738278457
+[?1h=>>> sort test test[K[5D[Ctest[K[4Dttest[4D
+[?1l>[]
+2022-10-13 15:14:18.988204955
+[?1h=>>> msort sorttest
+[?1l>[]
+2022-10-13 15:14:49.629130311
+[?1h=>>> :r
+[?1l>[1 of 1] Compiling Rec              ( src/Rec.hs, interpreted )
+Ok, one module loaded.
+2022-10-13 15:15:31.739591357
+[?1h=>>> :r[2Dmsort sorttest[14Dsorttest[K
+[?1l>[3,1,4,1,5,9,2,6,5,3,5,8,9]
+2022-10-13 15:15:41.551325822
+[?1h=>>> sorttest[8D:r[K[2Dmsort sorttest
+[?1l>[1,1,2,3,3,4,5,5,5,6,8,9,9]
+2022-10-13 15:15:45.50696396
+[?1h=>>> :r
+[?1l>[1 of 1] Compiling Rec              ( src/Rec.hs, interpreted )
+Ok, one module loaded.
+2022-10-13 15:50:25.909519014
+[?1h=>>> teice inc 0
+[?1l>
+[;1m<interactive>:9:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Variable not in scope: teice :: (Int -> Int) -> t0 -> t
+    • Perhaps you meant ‘twice’ (line 48)[0m[0m
+2022-10-13 15:50:36.543123156
+[?1h=>>> twice inc 0
+[?1l>2
+2022-10-13 15:50:53.184696295
+[?1h=>>> twice inc 0[K[K[K[K[Ktwice inc 0
+[?1l>4
+2022-10-13 15:52:10.285421177
+[?1h=>>> twice twice inc 0[11Dinc 0[K[10Deice inc 0[11D:r[K[2Dmsort sorttest[14Dsorttest[K[8D:r[K[2Dsorttest[8Dmsort sorttest[14D:r[K[2Dteice inc 0[10Dwice inc 0[5Dtwice inc 0[17D[Ktwice twice inc 0[K[K[K[K[Ktwice inc 0
+[?1l>16
+2022-10-13 15:52:50.144926499
+[?1h=>>> twice twice twice inc 0[K[K[K[K[Ktwice inc 0
+[?1l>65536
+2022-10-13 15:55:11.759161154
+[?1h=>>> twice twice twice twice inc 0[11Dinc 0[K[5Dtwice inc 0[K[K[K[K[Ktwice inc 0
+[?1l>*** Exception: stack overflow
+2022-10-13 15:59:06.352594295
+[?1h=>>> :r
+[?1l>[1 of 1] Compiling Rec              ( src/Rec.hs, interpreted )
+Ok, one module loaded.
+2022-10-13 16:06:06.052934948
+[?1h=>>> map inc sorttes[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K:r
+[?1l>[1 of 1] Compiling Rec              ( src/Rec.hs, interpreted )
+Ok, one module loaded.
+2022-10-13 16:06:43.352077579
+[?1h=>>> map[K[K[Ksample
+[?1l>[3,1,4,1,5,9,2,6,5,3,5,8,9]
+2022-10-13 16:06:53.781907878
+[?1h=>>> map inc sample
+[?1l>[4,2,5,2,6,10,3,7,6,4,6,9,10]
+2022-10-13 16:07:06.626504373
+[?1h=>>> :q
+[?1l>Leaving GHCi.
+]0;nao@nao: ~/bprog2022[01;32mnao@nao[00m:[01;34m~/bprog2022[00m$ g[Kgit add .
